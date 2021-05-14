@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Monoton:wght@400;600&display=swap');
+.searchb{
+	background-color: transparent !important;
+	border: 0;
+	position: absolute;
+	right: 4%;
+	top: 46%
+}
+
+.search{
+	position: relative;
+	text-align: center;
+	padding-top: 11.7%;
+}
+
+.search > h1{
+	color: white;
+	font-family: 'Monoton';
+	
+}
+
+
+#search{
+    margin-left: 3%;
+	background-color: #A2AFDE;
+	border: none;
+	padding: 15px 15px;
+	width:100%;
+}
+
+#search::placeholder{
+	color: #000;
+}
+
+#search:focus{
+	border: none;
+	outline: none;
+}
+
+
+.nrdy{
+	display: block;
+	font-family: 'Poppins';
+	padding-top: 5%;
+	padding-bottom: 11.5%;
+	background: linear-gradient(0deg,rgb(99, 105, 209, 0.8), rgb(99, 105, 209, 0.8)), url("https://images.unsplash.com/photo-1595239094383-98b56bb82d17?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y29uY2VydHxlbnwwfDB8MHx3aGl0ZXw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60");
+	background-size: cover;
+}
+
+
+.loading{
+	display: none;
+ 	height: 500px;
+	background: url("https://i.pinimg.com/originals/22/29/4f/22294f46273c381a20b9e3ce07fab4d2.gif") no-repeat center;
+}
+
+.loading > center > h5{
+	padding-top: 30%;
+}
+
+
+
+       /* The heart of the matter */
+          
+
+  .column {
+	float: left;
+	width: 400px;
+	padding: 0 10px;
+  }
+  
+  
+  .content {
+	  margin: 0 -5px;
+	  background: #6A5ACD;
+  }
+
+
+  /* Clear floats after the columns */
+  .row:after {
+	content: "";
+	display: table;
+	clear: both;
+  }
+/* .content.container{
+	position:relative;
+	width:500px;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	flex-wrap:wrap;
+	padding:30px;
+} */
+
+.card {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+	padding: 16px;
+	color:black;
+	text-align: center;
+	background-color: white;
+	height:500px;
+	width:400px;
+	font-family: Poppins;
+  }
+  
+  /* Responsive columns - one column layout (vertical) on small screens */
+  @media screen and (max-width: 600px) {
+.column {
+	  width: 100%;
+	  display: block;
+	  margin-bottom: 20px;
+	}
+  }
+
+  
+
+
+/* .content.card.imgBx{
+	position:relative;
+	width:260px;
+	height:260px;
+
+}
+.content.container.card.imgBx img{
+	
+	border-radius: 4px;
+	width:100px;
+	height:100px;
+
+} */
