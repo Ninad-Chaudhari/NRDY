@@ -61,6 +61,7 @@ def rec():
         temp = []
         track = sp.track(j)
         time.sleep(0.2)
+        yield "<br/>"
         if(track['name']==prev):
             continue
         minutes = str(int((track['duration_ms'] / 1000) / 60))
