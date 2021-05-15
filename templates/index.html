@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8'>
+	<meta http-equiv='X-UA-Compatible' content='IE=edge'>
+	<title>NRDY</title>
+	<meta name='viewport' content='width=device-width, initial-scale=1'>
+	<!-- CSS only -->
+	<link rel="stylesheet" href="../static/index.css">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<!-- JavaScript Bundle with Popper -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+	<div class="nrdy mx-0">
+		<form class="row mx-0 form" method="POST">
+			<div class="col-md-1"></div>
+			<div class="col-md-4"><img src="../static/nrdy2.png"></div>
+			<div class="col-md-5 search">
+				<input type="text" name="song" id="search" placeholder="Enter a Song...">
+			</div>
+	
+			<div class="row mx-0">
+				<div class="col-md-1"></div>	
+				<div class="col-md-5"></div>
+				<div class="col-md-3">	
+				<button class="searchb1" type="submit" formaction="/rec/content#content">Content based </button>
+				</div>
+				<div class="col-md-3">
+				<button class="searchb2" type="submit" formaction="/rec/collab#collab">Collaborative </button>
+				</div>
+			</div>
+	  	</form>
+	</div>
+
+	<div class="loading mx-0"><center><h5 id="myheader">Setting up Studio..🎚️</h5></center></div>
+	
+	
+		{% set count = namespace(value=0) %}
+	<div id="collab" class=" mx-0">
+	
+	<div class="row mx-0">
+			
+			{% for j in recommendations %}
+
+		<div class="col-md-4 p-3">
+		<div class="card">
+				{% set count2 = namespace(value=0) %}
+				{% for k in j %}
+					{% if count2.value == 0 %}
+					<div class="imgBx">
+						<img src= {{k}} width="300px" height="300px">
+					</div>
+					{% endif %}	
+					{% if count2.value == 1 %}
+						<p>Name : {{k}}</p>
+					{% endif %}
+					{% if count2.value == 2 %}
+						<p>Duration : {{k}}</p>
+					{% endif %}
+					{% if count2.value == 3 %}
+						<p>Artist : {{k}}</p>
+					{% endif %}
+					{% if count2.value == 4 %}
+						<audio controls="controls" src={{k}}>
+							Your browser does not support the HTML5 Audio element.
+						</audio>
+
+					{% endif %}
+				
+					{% set count2.value = count2.value + 1 %}
+			
+				{% endfor %}
+			</div>
+			</div>
+			 <!-- end Table row --> 	
+
+			{% endfor %}
+			
+	</div>
+	</div>
+
+	<div id="content">
+		{% set count = namespace(value=0) %}
+		{% for i in recommend %}
+		<h4>Recommendations based on {{ col[ count.value ] }} </h4>
+		<table id="result">
+			<th> SONG</th>
+			<th> DURATION </th>
+			<th> ARTIST </th>
+			<th> COVER </th>
+			
+			{% for j in i  %} <!---tracks-->
+				 <tr> 
+				{% for k in range(0,5) %}
+				       
+				    {% if k==0 %}
+					   <td> <a href=' {{ j[3] }}' target="_blank"><i class="fa fa-play-circle fa-2x" id='play'></i>
+					    {{ j[k] }}</a> </td>  
+          
+					{% elif k==1 %}
+                        <td> {{j[k]}} </td>  
+				    {% elif k==4 %}
+					   <td> <img src='{{ j[4] }}' id='cover'> </td> 
+
+					{% elif k==2 %}
+					   <td> {{ j[k] }} </td> 
+					
+                    {% endif %}
+
+				{% endfor %}
+				 </tr> 
+
+			{% endfor %}
+			
+			{% set count.value = count.value + 1 %}
+		</table>
+		<br>
+		{% endfor %}
+		
+		
+	</div>
+	<footer>
+		Made with <i class="fa fa-heart"></i> by NRDY
+	</footer>
+	
+
+	<script>
+		$('.searchb1').click(function() {
+    	$('.loading').toggle();
+		$('.nrdy').toggle();
+		$('footer').toggle();
+
+		var i = 1;
+		var sampleMessages = [ "Fetching music..🎶", "Fetching Recommendations..📊", "Fetching audio files..🎧","Mike testing..🎙️" ,"Tuning the bass🔊"];
+		setInterval(function() {
+			var newText = sampleMessages[i++ % sampleMessages.length];
+			$("h5").fadeOut(1000, function () {
+			$("h5").text(newText).fadeIn(1000);
+			});
+		}, 2 * 1000);
+    		return true;	
+		});
+		$('.searchb2').click(function() {
+    	$('.loading').toggle();
+		$('.nrdy').toggle();
+		$('footer').toggle();
+		
+		var i = 1;
+		var sampleMessages = [ "Fetching music..🎶", "Fetching Recommendations..📊", "Fetching audio files..🎧","Mike testing..🎙️" ,"Tuning the bass🔊"];
+		setInterval(function() {
+			var newText = sampleMessages[i++ % sampleMessages.length];
+			$("h5").fadeOut(1000, function () {
+			$("h5").text(newText).fadeIn(1000);
+			});
+		}, 2 * 1000);
+    		return true;	
+		});
+
+	</script>
+</body>
+
+</html>
+
