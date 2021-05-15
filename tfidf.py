@@ -3,7 +3,6 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import linear_kernel
 
 def TFIDF(data, col):
-  yield "<br/>"
   #Define a TF-IDF Vectorizer Object. Remove all english stop words such as 'the', 'a'
   tfidf = TfidfVectorizer(stop_words='english')
   #Construct the required TF-IDF matrix by fitting and transforming the data
