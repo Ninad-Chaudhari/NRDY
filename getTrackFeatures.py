@@ -3,7 +3,6 @@ import numpy as np
 
 # GET TRACK FEATURES ------------------------------------------------------------------------------------------
 def getTrackFeatures(id, sp):
-  yield "<br/>"
   meta = sp.track(id)
   features = sp.audio_features(id)
   # meta
