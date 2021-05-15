@@ -132,15 +132,7 @@ audio{
 	height: 50px;
 }
 
-  @media screen and (max-width: 800px) {
-	  button{
-	  transform: translate(70%, 50%);
-	  
-	  
-	  }
 
-  }
-  
 
   @media screen and (max-width: 600px) {
 .column {
