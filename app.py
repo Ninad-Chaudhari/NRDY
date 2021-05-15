@@ -141,6 +141,9 @@ def content():
 
 
 # MAIN ROUTE ------------------------------------------------------------------------------------------------
+@app.route("/hello", methods=['GET'])
+def hello():
+    return "hello world"
 @app.route("/", methods=['GET'])
 def index():
     return render_template("index.html", msg="NRDY")
